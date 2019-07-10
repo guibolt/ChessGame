@@ -34,6 +34,10 @@ namespace ChessGame.tabuleiro
         }
         public void ColocarPeca(Peca p, Posicao pos)
         {
+            if (ExistePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição");
+            }
             Pecas[pos.Linhas, pos.Colunas] = p;
             p.Posicao = pos;
         }
