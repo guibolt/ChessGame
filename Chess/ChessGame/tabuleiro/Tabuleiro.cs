@@ -42,6 +42,20 @@ namespace ChessGame.tabuleiro
             p.Posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;
+            Pecas[pos.Linhas, pos.Colunas] = null;
+            return aux;
+
+        }
+
+
         public bool PosicaoValida(Posicao pos)
         {
             if (pos.Linhas<0 || pos.Linhas >=Linhas || pos.Colunas<0 || pos.Colunas>=Colunas)

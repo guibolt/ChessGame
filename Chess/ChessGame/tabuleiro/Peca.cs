@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ChessGame.tabuleiro
 {
-    public class Peca
+    public abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Tabuleiro Tab { get; protected set; }
@@ -19,7 +19,11 @@ namespace ChessGame.tabuleiro
             Cor = cor;
             QteMovi = 0;
         }
+        public void IncrementarMovimentos()
+        {
+            QteMovi++;
+        }
 
-      
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
